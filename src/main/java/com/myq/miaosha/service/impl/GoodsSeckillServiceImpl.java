@@ -1,0 +1,29 @@
+package com.myq.miaosha.service.impl;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.myq.miaosha.entity.GoodsSeckill;
+import com.myq.miaosha.mapper.GoodsSeckillMapper;
+import com.myq.miaosha.service.GoodsSeckillService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ *  服务实现类
+ * </p>
+ *
+ * @author 孟赟强
+ * @since 2021-05-05
+ */
+@Service
+public class GoodsSeckillServiceImpl extends ServiceImpl<GoodsSeckillMapper, GoodsSeckill> implements GoodsSeckillService {
+
+    @Autowired
+    GoodsSeckillMapper goodsSeckillMapper;
+
+    /**
+     * 根据id查询秒杀商品信息
+     */
+    public GoodsSeckill selectSeckillGoodsById(long goodsId){return goodsSeckillMapper.selectOneByGoodsId(goodsId);}
+
+}
